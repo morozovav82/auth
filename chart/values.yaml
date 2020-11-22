@@ -1,0 +1,20 @@
+replicaCount: 1
+
+image: morozovav82/auth:1.0
+
+service:
+  type: NodePort
+  port: 9010
+
+appBasePath: '/otusapp/morozovav/auth/'
+usersUrl: 'http://users-users-chart.morozovav.svc.cluster.local:9000'
+  
+ingress:
+  enabled: true
+  hosts:
+    - host: arch.homework
+      paths: ["/auth"]
+      
+metrics:
+  serviceMonitor:
+    enabled: true

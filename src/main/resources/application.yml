@@ -1,0 +1,23 @@
+users.url: http://users-users-chart.morozovav.svc.cluster.local:9000
+
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration # отключение стандартного переброса на страницу /error в случае ошибок
+
+#настройка actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+---
+#настройка для prometheus
+management:
+  metrics:
+    distribution:
+      percentiles[http.server.requests]: 0.5, 0.95, 0.99, 1
+      percentiles-histogram[http.server.requests]: true
