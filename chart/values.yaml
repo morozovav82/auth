@@ -6,7 +6,7 @@ service:
   type: NodePort
   port: 9010
 
-appBasePath: '/otusapp/morozovav/auth/'
+appBasePath: '/auth/'
 usersUrl: 'http://users-users-chart.morozovav.svc.cluster.local:9000'
   
 ingress:
