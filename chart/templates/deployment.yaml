@@ -37,4 +37,13 @@ spec:
                 configMapKeyRef:
                   name: auth-config
                   key: USERS_URL
-
+            - name: REDIS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: auth-config
+                  key: REDIS_HOST
+            - name: REDIS_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: auth-config
+                  key: REDIS_PORT

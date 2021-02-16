@@ -5,3 +5,5 @@ metadata:
 data:
   BASE_APP_URL: {{ .Values.appBasePath }}
   USERS_URL: {{ .Values.usersUrl }}
+  REDIS_HOST: {{ .Values.redis.host }}
+  REDIS_PORT: {{ .Values.redis.port | quote }}

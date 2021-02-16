@@ -1,8 +1,15 @@
-users.url: http://localhost:8080
-
-server:
-  port: 8081
-
 #logging:
 #  level:
 #    root: debug
+
+users.url: http://localhost:8081/users
+
+server:
+  port: 8080
+  servlet:
+    context-path: /auth
+
+spring:
+  redis:
+    host: localhost
+    port: 6379

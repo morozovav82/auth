@@ -27,7 +27,7 @@ public class AuthController {
     private String usersUrl;
 
     @PostMapping("/reg")
-    public ResponseEntity createUser(@RequestBody NewUserDto user) {
+    public ResponseEntity registration(@RequestBody NewUserDto user) {
         if (!StringUtils.hasText(user.getUsername())) {
             throw new RuntimeException("Empty username");
         }
@@ -37,7 +37,7 @@ public class AuthController {
             log.debug("Sent message to " + usersUrl + "/public/reg");
             ResponseEntity<UserDto> result = restTemplate.postForEntity(usersUrl + "/public/reg", user, UserDto.class);
             log.info("User created with id={}", result.getBody().getId());
-            return new ResponseEntity(result.getBody(), HttpStatus.OK);
+            return new ResponseEntity(result.getBody(), HttpStatus.CREATED);
         } catch (Throwable e) {
             log.error("Failed to create user: " + user.getUsername(), e);
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -45,6 +45,7 @@ public class AuthController {
     }
 
     @GetMapping("/signin")
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public String signin() {
         return "You must be authenticated";
     }

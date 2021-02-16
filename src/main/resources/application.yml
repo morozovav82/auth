@@ -1,8 +1,11 @@
-users.url: http://users-users-chart.morozovav.svc.cluster.local:9000
+users.url: http://users-users-chart.morozovav.svc.cluster.local:9000/users
 
 spring:
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration # отключение стандартного переброса на страницу /error в случае ошибок
+  redis:
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT}
 
 #настройка actuator
 management:
