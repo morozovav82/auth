@@ -1,6 +1,6 @@
 replicaCount: 1
 
-image: morozovav82/auth:1.1
+image: morozovav82/auth:2.0
 
 service:
   type: NodePort
